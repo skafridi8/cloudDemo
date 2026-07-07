@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://epohdjzfrmijgiwhvfqg.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb2hkanpmcm1pamdpd2h2ZnFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMzMzU0NTEsImV4cCI6MjA5ODkxMTQ1MX0.2BuwHrdXsOiq3cLgASmAWe-AxaeLaSElaIqrEDBbshA";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const form = document.getElementById("note-form");
 const contentInput = document.getElementById("content");
@@ -9,7 +9,7 @@ const statusEl = document.getElementById("status");
 const notesList = document.getElementById("notes-list");
 
 async function loadNotes() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("test_notes")
     .select("id, content, created_at")
     .order("created_at", { ascending: false })
@@ -37,7 +37,7 @@ form.addEventListener("submit", async (e) => {
   submitBtn.disabled = true;
   statusEl.textContent = "Saving...";
 
-  const { error } = await supabase.from("test_notes").insert({ content });
+  const { error } = await supabaseClient.from("test_notes").insert({ content });
 
   submitBtn.disabled = false;
 
