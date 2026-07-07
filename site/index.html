@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Leave a Note</h1>
+    <form id="note-form">
+      <textarea id="content" name="content" placeholder="Write something..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="status"></p>
+
+    <h2>Recent Notes</h2>
+    <ul id="notes-list"></ul>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
