@@ -3,20 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notes</title>
+  <title>Care Visit Log</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="container">
-    <h1>Leave a Note</h1>
-    <form id="note-form">
-      <textarea id="content" name="content" placeholder="Write something..." required></textarea>
+    <h1>Care Visit Log</h1>
+    <form id="visit-form">
+      <label for="patient_name">Patient name</label>
+      <input type="text" id="patient_name" name="patient_name" required />
+
+      <label for="carer_name">Carer name</label>
+      <input type="text" id="carer_name" name="carer_name" required />
+
+      <label for="visit_time">Visit date &amp; time</label>
+      <input type="datetime-local" id="visit_time" name="visit_time" required />
+
+      <fieldset>
+        <legend>Tasks performed</legend>
+        <label class="checkbox"><input type="checkbox" id="bathing" name="bathing" /> Bathing</label>
+        <label class="checkbox"><input type="checkbox" id="medication" name="medication" /> Medication</label>
+        <label class="checkbox"><input type="checkbox" id="meals" name="meals" /> Meals</label>
+        <label class="checkbox"><input type="checkbox" id="mobility" name="mobility" /> Mobility assistance</label>
+      </fieldset>
+
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" placeholder="Any additional notes..."></textarea>
+
       <button type="submit">Submit</button>
     </form>
     <p id="status"></p>
 
-    <h2>Recent Notes</h2>
-    <ul id="notes-list"></ul>
+    <h2>Recent Visits</h2>
+    <ul id="visits-list"></ul>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>

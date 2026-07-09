@@ -23,18 +23,60 @@ h1 {
   margin-top: 0;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="datetime-local"],
 textarea {
   width: 100%;
-  min-height: 100px;
-  padding: 0.75rem;
+  padding: 0.65rem 0.75rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 80px;
   resize: vertical;
 }
 
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+legend {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0 0.4rem;
+}
+
+label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  padding: 0.25rem 0;
+}
+
+label.checkbox input {
+  width: auto;
+}
+
 button {
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
   padding: 0.6rem 1.2rem;
   background: #3ecf8e;
   color: #fff;
@@ -58,16 +100,17 @@ button:disabled {
   font-size: 0.9rem;
 }
 
-#notes-list {
+#visits-list {
   list-style: none;
   padding: 0;
 }
 
-#notes-list li {
+#visits-list li {
   padding: 0.6rem 0;
   border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
 }
 
-#notes-list li:last-child {
+#visits-list li:last-child {
   border-bottom: none;
 }
